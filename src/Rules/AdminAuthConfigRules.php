@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * @author Basic App Dev Team <dev@basic-app.com>
  * @license MIT
@@ -6,8 +7,7 @@
  */
 namespace BasicApp\AdminAuthConfig\Rules;
 
-use BasicApp\AdminAuthConfig\Config\AdminAuth as AdminConfig;
-use Webmozart\Assert\Assert;
+use BasicApp\AdminAuthConfig\Config\AdminCredential as AdminConfig;
 
 class AdminAuthConfigRules
 {

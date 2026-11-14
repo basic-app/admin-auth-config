@@ -18,18 +18,10 @@ helper(['admin_auth_config']);
 admin_auth_config_routes($routes);
 ```
 
-3. Add to "Config/Services.php"
+3. Add to ".env"
 
 ```
-    public static function adminAuth($getShared = true)
-    {
-        if ($getShared) 
-        {
-            return static::getSharedInstance(__FUNCTION__);
-        }
-
-        return config(\BasicApp\AdminAuthConfig\Config\AdminAuth::class);
-    }
+AdminAuth.credentialClass="BasicApp\AdminAuthConfig\Services\AdminAuth"
 ```
 
 4. Add to "Config/Filters.php"
@@ -52,8 +44,16 @@ admin_auth_config_routes($routes);
 5. Add settings to .env
 
 ```
-AdminAuth.login="admin"
-AdminAuth.password="admin"
-AdminAuth.email="email@example.org"
-AdminAuth.avatar_image="assets/adminlte4/assets/img/avatar5.png"
+AdminCredential.login="admin"
+AdminCredential.password="admin"
+AdminCredential.email="email@example.org"
+AdminCredential.avatarImage="assets/adminlte4/assets/img/avatar5.png"
 ```
+
+Access backend by opening `http://localhost:8080/index.php/admin` in a browser.
+```
+login: admin
+password: admin
+```
+
+You need to restart the Spark server so the new settings take effect.
